@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carnicería Las Delicias de la Orqueta | Cortes Premium en Apulo</title>
+  
+  <!-- Font Awesome para Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================
+       VARIABLES Y ESTILOS BASE (Moderno/Minimalista)
+       ========================================== */
+    :root {
+      --primary: #9E1B22;       /* Rojo artesanal/cárnico */
+      --primary-dark: #6C1015;
+      --secondary: #1F2937;     /* Gris oscuro pulcro */
+      --accent-gold: #D97706;   /* Dorado/Calidad */
+      --nequi: #200020;         /* Color marca Nequi */
+      --daviplata: #ED1C24;     /* Color marca Daviplata */
+      --bg-light: #F9FAFB;
+      --surface: #FFFFFF;
+      --text: #111827;
+      --text-muted: #6B7280;
+      --radius: 12px;
+      --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text);
+      line-height: 1.5;
+      padding-bottom: 80px; /* Espacio para barra de pedido fija en móvil */
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ==========================================
+       HEADER & NAVEGACIÓN
+       ========================================== */
+    .header {
+      background: var(--surface);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .brand-text h1 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .brand-text span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-location {
+      background: #FEF3C7;
+      color: #92400E;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ==========================================
+       HERO SECTION (Mobile-First / Impacto Visual)
+       ========================================== */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                  url('https://cdn.pixabay.com/photo/2016/03/05/19/02/abstract-1238247_1280.jpg') center/cover;
+      color: white;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-tag {
+      background: var(--primary);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 12px;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .hero h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 0.95rem;
+      color: #E5E7EB;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+    }
+
+    /* ==========================================
+       ACCESOS RÁPIDOS & BANNERS INFORMATIVOS
+       ========================================== */
+    .features-bar {
+      background: var(--surface);
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      max-width: 1200px;
+      margin: -20px auto 1.5rem auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      width: 92%;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    .feature-item i {
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+
+    /* Banner Dec. 1500 */
+    .trust-banner {
+      max-width: 1200px;
+      margin: 0 auto 2rem auto;
+      width: 92%;
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      border-radius: var(--radius);
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .trust-banner i {
+      font-size: 1.5rem;
+      color: #059669;
+    }
+
+    .trust-banner-text h4 {
+      font-size: 0.85rem;
+      color: #065F46;
+      font-weight: 700;
+    }
+
+    .trust-banner-text p {
+      font-size: 0.75rem;
+      color: #047857;
+    }
+
+    /* ==========================================
+       SECCIÓN DE CATALOGO DE CORTES
+       ========================================== */
+    .section-title {
+      max-width: 1200px;
+      margin: 0 auto 1rem auto;
+      width: 92%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .section-title h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--secondary);
+    }
+
+    .catalog-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 92%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .product-img {
+      height: 170px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .product-details {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .product-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .product-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .product-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid #F3F4F6;
+    }
+
+    .product-price {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .product-price span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .btn-add {
+      background: var(--secondary);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    /* ==========================================
+       PAGOS DIGITALES Y PREVENTA (Nequi / Daviplata)
+       ========================================== */
+    .payments-section {
+      background: var(--surface);
+      margin: 2.5rem 0;
+      padding: 2rem 1rem;
+      border-top: 1px solid #E5E7EB;
+      border-bottom: 1px solid #E5E7EB;
+    }
+
+    .payments-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .payments-container h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .payments-container p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .payment-badges {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .badge-payment {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nequi { background-color: var(--nequi); }
+    .daviplata { background-color: var(--daviplata); }
+
+    /* ==========================================
+       CAPTACIÓN DE CLIENTES (Promociones)
+       ========================================== */
+    .newsletter-section {
+      max-width: 1200px;
+      margin: 0 auto 2.5rem auto;
+      width: 92%;
+      background: var(--secondary);
+      color: white;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .newsletter-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .newsletter-section p {
+      font-size: 0.85rem;
+      color: #9CA3AF;
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .newsletter-form input {
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 0.9rem;
+    }
+
+    /* ==========================================
+       UBICACIÓN Y SEO LOCAL
+       ========================================== */
+    .location-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 92%;
+    }
+
+    .location-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    /* ==========================================
+       BARRA DE PEDIDO FLOTANTE (Optimizado Móvil)
+       ========================================== */
+    .sticky-order-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-top: 1px solid #E5E7EB;
+      padding: 12px 1rem;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .cart-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-count {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .cart-total {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* MEDIA QUERIES (Pantallas medianas y grandes) */
+    @media (min-width: 640px) {
+      .hero-actions {
+        flex-direction: row;
+        justify-content: center;
+      }
+      .newsletter-form {
+        flex-direction: row;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .newsletter-form input {
+        flex-grow: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="nav-container">
+      <div class="brand">
+        <!-- SVG Vectorial Alusivo desde Pixabay como isotipo/logo -->
+        <img src="https://cdn.pixabay.com/photo/2012/04/13/20/37/carcass-33553_1280.png" alt="Logo Cerdo/Carnicería">
+        <div class="brand-text">
+          <h1>LAS DELICIAS</h1>
+          <span>DE LA ORQUETA</span>
+        </div>
+      </div>
+      <div class="badge-location">
+        <i class="fa-solid fa-location-dot"></i> Apulo, Cund.
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">Preventa Web y Domicilios</span>
+      <h2>Carnes Frescas y Cortes Premium para tu Fin de Semana</h2>
+      <p>Asegura tus chatas, lomos o costillas antes de llegar a La Orqueta. Ahorra tiempo y recibe calidad certificada.</p>
+      <div class="hero-actions">
+        <a href="#catalogo" class="btn btn-primary">
+          <i class="fa-solid fa-drumstick-bite"></i> Ver Cortes y Precios
+        </a>
+        <a href="https://wa.me/573000000000?text=Hola,%20quiero%20hacer%20un%20pedido%20de%20carne" target="_blank" class="btn btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARACTERÍSTICAS / VALOR AGREGADO -->
+  <div class="features-bar">
+    <div class="feature-item">
+      <i class="fa-solid fa-truck-fast"></i>
+      <span>Preventa sin filas</span>
+    </div>
+    <div class="feature-item">
+      <i class="fa-solid fa-snowflake"></i>
+      <span>Cadena de frío 100%</span>
+    </div>
+  </div>
+
+  <!-- BANNER DE COMPLIANCE SANITARIO (Decreto 1500) -->
+  <div class="trust-banner">
+    <i class="fa-solid fa-shield-halved"></i>
+    <div class="trust-banner-text">
+      <h4>Garantía e Inocuidad Alimentaria</h4>
+      <p>Cumplimos rigurosamente con el Decreto 1500 de 2007. Cortes empacados higiénicamente y origen certificado.</p>
+    </div>
+  </div>
+
+  <!-- CATÁLOGO DE PRODUCTOS -->
+  <section id="catalogo">
+    <div class="section-title">
+      <h3>Cortes Destacados</h3>
+      <span style="font-size: 0.8rem; color: var(--text-muted);">Precios por Libra (Lb)</span>
+    </div>
+
+    <div class="catalog-grid">
+      
+      <!-- Producto 1: Chatas/Lomo Ancho -->
+      <div class="product-card">
+        <img class="product-img" src="https://cdn.pixabay.com/photo/2018/02/26/18/06/meat-3183647_1280.jpg" alt="Corte de carne de res fresca">
+        <div class="product-details">
+          <span class="product-tag">Res • Ideal para Asar</span>
+          <h4 class="product-title">Chatas Especiales (Lomo Ancho)</h4>
+          <p class="product-desc">Corte tierno y jugoso con marmoleo óptimo. Perfecto para asados de fin de semana.</p>
+          <div class="product-price-row">
+            <div class="product-price">$18.500 <span>/ Lb</span></div>
+            <button class="btn-add" onclick="agregarAlCarrito('Chatas', 18500)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 2: Costilla de Cerdo -->
+      <div class="product-card">
+        <img class="product-img" src="https://cdn.pixabay.com/photo/2017/03/23/19/57/pork-ribs-2169309_1280.jpg" alt="Costilla de cerdo para bbq">
+        <div class="product-details">
+          <span class="product-tag">Cerdo • Calidad Artesanal</span>
+          <h4 class="product-title">Costilla de Cerdo Fresca</h4>
+          <p class="product-desc">Corte seleccionado con excelente proporción de carne. Lista para la parrilla o sudada.</p>
+          <div class="product-price-row">
+            <div class="product-price">$14.000 <span>/ Lb</span></div>
+            <button class="btn-add" onclick="agregarAlCarrito('Costilla Cerdo', 14000)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 3: Lomo Fino -->
+      <div class="product-card">
+        <img class="product-img" src="https://cdn.pixabay.com/photo/2019/08/13/10/47/beef-4403102_1280.jpg" alt="Lomo de res tierno">
+        <div class="product-details">
+          <span class="product-tag">Res • Premium</span>
+          <h4 class="product-title">Lomo Fino Seleccionado</h4>
+          <p class="product-desc">El corte más suave de la res. Cero gordana, ideal para platos especiales.</p>
+          <div class="product-price-row">
+            <div class="product-price">$22.000 <span>/ Lb</span></div>
+            <button class="btn-add" onclick="agregarAlCarrito('Lomo Fino', 22000)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PAGOS DIGITALES (Nequi / Daviplata) -->
+  <section class="payments-section">
+    <div class="payments-container">
+      <h3>Paga Fácil y Sin Efectivo</h3>
+      <p>Aceptamos transferencias inmediatas para agilizar tu pedido de preventa.</p>
+      <div class="payment-badges">
+        <div class="badge-payment nequi">
+          <i class="fa-solid fa-mobile-screen"></i> Nequi
+        </div>
+        <div class="badge-payment daviplata">
+          <i class="fa-solid fa-wallet"></i> Daviplata
+        </div>
+        <div class="badge-payment" style="background-color: #059669;">
+          <i class="fa-solid fa-money-bill-wave"></i> Efectivo al recoger
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPTACIÓN DE CLIENTES (Promociones Semanales) -->
+  <section class="newsletter-section">
+    <h3><i class="fa-solid fa-tags"></i> Ofertas Exclusivas para Clientes</h3>
+    <p>Recibe los Viernes en tu WhatsApp las promociones para tu viaje a Apulo o fin de semana.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias! Te avisaremos de las ofertas semanales.');">
+      <input type="tel" placeholder="Número de WhatsApp" required>
+      <button type="submit" class="btn btn-primary">Suscribirme</button>
+    </form>
+  </section>
+
+  <!-- SEO LOCAL Y UBICACIÓN -->
+  <section class="location-section">
+    <div class="location-card">
+      <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem;"><i class="fa-solid fa-map-location-dot" style="color: var(--primary);"></i> Encuéntranos en La Orqueta</h4>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Sector La Orqueta, Inspección de Apulo, Cundinamarca. Vía principal al Tequendama.</p>
+      <div style="background: #E5E7EB; border-radius: 8px; height: 150px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.85rem;">
+        <!-- Simulación de Integración con Google Maps -->
+        <i class="fa-solid fa-map"></i>&nbsp; Mapa interactivo (Google Maps API)
+      </div>
+    </div>
+  </section>
+
+  <!-- BARRA DE PEDIDO FLOTANTE (MOBILE-FIRST) -->
+  <div class="sticky-order-bar">
+    <div class="cart-info">
+      <span class="cart-count" id="cart-count">0 productos seleccionados</span>
+      <span class="cart-total" id="cart-total">$0 COP</span>
+    </div>
+    <button class="btn btn-whatsapp" onclick="enviarPedidoWhatsApp()">
+      <i class="fa-brands fa-whatsapp"></i> Confirmar
+    </button>
+  </div>
+
+  <!-- JAVASCRIPT / LÓGICA INTERACTIVA DEL CARRITO Y PREVENTA -->
+  <script>
+    let totalCarrito = 0;
+    let cantidadProductos = 0;
+    let itemsSeleccionados = [];
+
+    function agregarAlCarrito(nombre, precio) {
+      totalCarrito += precio;
+      cantidadProductos += 1;
+      itemsSeleccionados.push(nombre);
+
+      // Actualizar Interfaz
+      document.getElementById('cart-total').innerText = '$' + totalCarrito.toLocaleString('es-CO') + ' COP';
+      document.getElementById('cart-count').innerText = cantidadProductos + ' producto(s) en preventa';
+    }
+
+    function enviarPedidoWhatsApp() {
+      if (cantidadProductos === 0) {
+        alert("Por favor selecciona al menos un corte de carne antes de confirmar.");
+        return;
+      }
+
+      let mensaje = `Hola *Carnicería Las Delicias*, me gustaría hacer una preventa web:%0A`;
+      itemsSeleccionados.forEach(item => {
+        mensaje += `- ${item}%0A`;
+      });
+      mensaje += `%0A*Total estimado:* $${totalCarrito.toLocaleString('es-CO')} COP`;
+      mensaje += `%0AMétodo de pago: (Nequi / Daviplata / Efectivo)`;
+
+      // Abrir enlace directo a WhatsApp con el mensaje estructurado
+      window.open(`https://wa.me/573000000000?text=${mensaje}`, '_blank');
+    }
+  </script>
+</body>
+</html>
